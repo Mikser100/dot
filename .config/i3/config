@@ -232,11 +232,11 @@ bar {
 #################################################
 
 #hoitaa näytön asetukset
-exec_always /home/miikap/.screenlayout/DEFAULT.sh
+exec_always --no-startup-id /home/miikap/.screenlayout/DEFAULT.sh
 
 
 #käynnistää verkosäädön
-exec kcmshell5 kcm_networkmanagement
+#exec kcmshell5 kcm_networkmanagement
 
 #asettaa taustakuvan
 set $wp "/home/miikap/Pictures/Wallpapers/neon/wizard.png"
@@ -244,7 +244,7 @@ exec_always --no-startup-id feh --bg-scale "/home/miikap/Pictures/Wallpapers/neo
 exec_always --no-startup-id wal -n --saturate 0.9 -i "/home/miikap/Pictures/Wallpapers/neon/wizard.png"
 
 #näytön lukitus + kustom lukituskuva
-bindsym $mod Control+l exec i3lock -i /home/miikap/Pictures/Wallpapers/Untitled.png -c 000000 -ef
+bindsym $mod+Control+l exec i3lock -i /home/miikap/Pictures/Wallpapers/Untitled.png -c 000000 -ef
 
 #tor-oikotie
 bindsym $mod+Shift+t exec /home/miikap/Downloads/tor-browser_en-US/tor.desktop
@@ -266,4 +266,6 @@ for_window [class="^.*"] border pixel 0
 
 #compositor setup
 # -o = varjojen läpinäkyvyys -i= inactive ikkunat -e titlebarit ja reuna -m = menut
-exec_always picom -o 0.7  -i 0.8 -e 0.5 --blur-method none -m 0 
+exec_always --no-startup-id picom -o 0.7  -i 0.8 -e 0.5 --blur-method none -m 0 
+
+
