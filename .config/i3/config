@@ -67,13 +67,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start dmenu (a program launcher+a lot more)
 #bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec i3-dmenu-desktop
-
 
 #KAIKKI VAIHDETTU SAMAKSI KUIN VIM
 # change focus
@@ -165,8 +164,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -201,7 +202,6 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     
-    
     i3bar_command i3bar --transparency
 
     #näyttää statustiedot
@@ -211,13 +211,10 @@ bar {
     mode dock
     #i3bar_command i3bar --transparency
 
-    tray_output primary
-
     #näkyy näytön yläreunassa
     position top
     separator_symbol"| 8==D~|"
     
-
     #kuten arvasit, tämä asettaa värit rgba muodossa
     colors {
     background #00000000
@@ -226,7 +223,6 @@ bar {
     }
 }
 
-
 #################################################
 #omat muutokset                         #
 #################################################
@@ -234,12 +230,10 @@ bar {
 #hoitaa näytön asetukset
 exec_always --no-startup-id /home/miikap/.screenlayout/DEFAULT.sh
 
-
 #käynnistää verkosäädön
-#exec kcmshell5 kcm_networkmanagement
+exec kcmshell5 kcm_networkmanagement
 
 #asettaa taustakuvan
-set $wp "/home/miikap/Pictures/Wallpapers/neon/wizard.png"
 exec_always --no-startup-id feh --bg-scale "/home/miikap/Pictures/Wallpapers/neon/wizard.png"
 exec_always --no-startup-id wal -n --saturate 0.9 -i "/home/miikap/Pictures/Wallpapers/neon/wizard.png"
 
@@ -252,13 +246,6 @@ bindsym $mod+Shift+t exec /home/miikap/Downloads/tor-browser_en-US/tor.desktop
 #selainkomento
 bindsym $mod+q exec qtebrowser
 
-#dmenu bind w/colors
-#bindsym $mod+d exec --no-startup-id /home/miikap/.config/i3/dmen.sh
-#################################################
-#värit                      #
-#################################################
-client.background #fffffff00
-
 #gap rules for i3-gaps
 gaps inner 15
 gaps outer 3
@@ -266,6 +253,4 @@ for_window [class="^.*"] border pixel 0
 
 #compositor setup
 # -o = varjojen läpinäkyvyys -i= inactive ikkunat -e titlebarit ja reuna -m = menut
-exec_always --no-startup-id picom -o 0.7  -i 0.8 -e 0.5 --blur-method none -m 0 
-
-
+exec --no-startup-id picom -o 0.7  -i 0.8 -e 0.5 --blur-method none -m 0 
