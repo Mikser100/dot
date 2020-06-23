@@ -1,3 +1,6 @@
+"asetan leaderin pilkuksi
+		let mapleader = ","
+
 "enables syntax highlighting
 		syntax on
 
@@ -27,7 +30,7 @@
 		set hlsearch
 
 "tyhjentää korostuksen näppäimillä , + <välilyönti>
-		nnoremap <leader>+<space> :nohlsearch<CR>
+		nnoremap <leader><space> :nohlsearch<CR>
 
 "salli funktioiden etc. "kiinni taittamisen" sisennyksen perusteella, plus avaaminen/sulkeminen välilyönnillä
 		set foldenable
